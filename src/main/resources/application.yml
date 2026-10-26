@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: checkout-pedidos
+  jackson:
+    deserialization:
+      # Valor em centavos com casa decimal (ex.: 89.9) é resposta fora do contrato e não pode ser truncado em silêncio.
+      accept-float-as-int: false
+
+servicos:
+  estoque:
+    url: http://localhost:8081
+    timeout-ms: 2000
+  pagamentos:
+    url: http://localhost:8082
+    timeout-ms: 3000
+    max-tentativas: 3

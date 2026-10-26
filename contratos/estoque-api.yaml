@@ -1,0 +1,226 @@
+openapi: 3.0.3
+info:
+  title: API de Estoque
+  version: 1.4.0
+  description: |
+    API do time de Logística (fictícia). O serviço de Pedidos usa esta API no checkout para consultar o preço dos
+    produtos e reservar os itens do pedido.
+
+    - A reserva é "tudo ou nada": se faltar quantidade de um item, nenhum item do pedido é reservado.
+    - Reservas que não forem confirmadas expiram sozinhas em 15 minutos e os itens voltam para o estoque.
+    - Confirmar e liberar são idempotentes: repetir a mesma operação na mesma reserva devolve o mesmo resultado.
+servers:
+  - url: http://localhost:8081
+paths:
+  /produtos/{sku}:
+    get:
+      summary: Consulta um produto do catálogo (preço e quantidade disponível)
+      operationId: consultarProduto
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Produto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+              example:
+                sku: LIV-001
+                nome: Livro Testes de Software
+                precoCentavos: 8990
+                disponivel: 10
+        '404':
+          description: SKU não cadastrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: PRODUTO_INEXISTENTE
+                mensagem: Produto XYZ-999 não encontrado
+                sku: XYZ-999
+  /reservas:
+    post:
+      summary: Reserva os itens de um pedido (tudo ou nada)
+      operationId: reservar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NovaReserva'
+            example:
+              pedidoId: 7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+              itens:
+                - sku: LIV-001
+                  quantidade: 2
+      responses:
+        '201':
+          description: Itens reservados
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reserva'
+              example:
+                id: res-123
+                pedidoId: 7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+                status: RESERVADA
+                itens:
+                  - sku: LIV-001
+                    quantidade: 2
+        '404':
+          description: Algum SKU não está cadastrado. Nenhum item é reservado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: PRODUTO_INEXISTENTE
+                mensagem: Produto XYZ-999 não encontrado
+                sku: XYZ-999
+        '409':
+          description: Quantidade indisponível para algum item. Nenhum item é reservado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: ESTOQUE_INSUFICIENTE
+                mensagem: Quantidade indisponível para MOU-003
+                sku: MOU-003
+                disponivel: 1
+        '422':
+          description: Requisição inválida (ex.: lista de itens vazia ou quantidade menor que 1)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+  /reservas/{id}/confirmacao:
+    post:
+      summary: Confirma a reserva (baixa definitiva no estoque)
+      operationId: confirmarReserva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reserva confirmada. Confirmar de novo uma reserva já confirmada também devolve 200.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reserva'
+        '404':
+          description: Reserva inexistente ou expirada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+        '409':
+          description: A reserva já foi liberada e não pode mais ser confirmada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+  /reservas/{id}:
+    delete:
+      summary: Libera a reserva e devolve os itens ao estoque
+      operationId: liberarReserva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Reserva liberada. Liberar de novo uma reserva já liberada também devolve 204.
+        '404':
+          description: Reserva inexistente ou expirada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+        '409':
+          description: A reserva já foi confirmada e não pode mais ser liberada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+components:
+  schemas:
+    Produto:
+      type: object
+      required: [sku, nome, precoCentavos, disponivel]
+      properties:
+        sku:
+          type: string
+        nome:
+          type: string
+        precoCentavos:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Preço unitário em centavos (R$ 89,90 = 8990)
+        disponivel:
+          type: integer
+          minimum: 0
+    NovaReserva:
+      type: object
+      required: [pedidoId, itens]
+      additionalProperties: false
+      properties:
+        pedidoId:
+          type: string
+          minLength: 1
+        itens:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ItemReserva'
+    ItemReserva:
+      type: object
+      required: [sku, quantidade]
+      additionalProperties: false
+      properties:
+        sku:
+          type: string
+          minLength: 1
+        quantidade:
+          type: integer
+          minimum: 1
+    Reserva:
+      type: object
+      required: [id, pedidoId, status, itens]
+      properties:
+        id:
+          type: string
+        pedidoId:
+          type: string
+        status:
+          type: string
+          enum: [RESERVADA, CONFIRMADA, LIBERADA]
+        itens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemReserva'
+    Erro:
+      type: object
+      required: [codigo, mensagem]
+      properties:
+        codigo:
+          type: string
+          description: PRODUTO_INEXISTENTE, ESTOQUE_INSUFICIENTE, RESERVA_INEXISTENTE, RESERVA_JA_LIBERADA, RESERVA_JA_CONFIRMADA ou DADOS_INVALIDOS
+        mensagem:
+          type: string
+        sku:
+          type: string
+        disponivel:
+          type: integer

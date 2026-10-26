@@ -1,0 +1,176 @@
+openapi: 3.0.3
+info:
+  title: API de Pagamentos
+  version: 2.1.0
+  description: |
+    Gateway de pagamentos (fictício). O serviço de Pedidos usa esta API para cobrar o pedido no checkout.
+
+    Idempotência: toda autorização exige o header Idempotency-Key.
+    - Mesma chave e mesmo corpo: devolve o pagamento já processado, com HTTP 200, sem cobrar de novo.
+    - Mesma chave e corpo diferente: HTTP 409 (CHAVE_IDEMPOTENCIA_REUTILIZADA).
+
+    Disponibilidade: em sobrecarga ou manutenção a API responde 503. O cliente pode repetir a chamada com a mesma
+    Idempotency-Key.
+servers:
+  - url: http://localhost:8082
+paths:
+  /pagamentos:
+    post:
+      summary: Autoriza (cobra) o pagamento de um pedido
+      operationId: autorizarPagamento
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 64
+          example: pedido-7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NovoPagamento'
+            example:
+              pedidoId: 7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+              valorCentavos: 17980
+              metodo: PIX
+      responses:
+        '201':
+          description: Pagamento processado. O status indica se foi aprovado ou recusado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pagamento'
+              examples:
+                aprovado:
+                  value:
+                    id: pag-001
+                    pedidoId: 7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+                    valorCentavos: 17980
+                    metodo: PIX
+                    status: APROVADO
+                    motivo: null
+                recusado:
+                  value:
+                    id: pag-002
+                    pedidoId: 7b0c2f6e-1d4a-4c55-9a0e-3f1f0f6b2a10
+                    valorCentavos: 17980
+                    metodo: CARTAO
+                    status: RECUSADO
+                    motivo: SALDO_INSUFICIENTE
+        '200':
+          description: Repetição idempotente (mesma chave e mesmo corpo). Devolve o pagamento original.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pagamento'
+        '400':
+          description: Header Idempotency-Key ausente ou inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: IDEMPOTENCY_KEY_INVALIDA
+                mensagem: O header Idempotency-Key é obrigatório
+        '409':
+          description: A Idempotency-Key já foi usada com outro corpo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: CHAVE_IDEMPOTENCIA_REUTILIZADA
+                mensagem: A chave já foi usada com dados diferentes
+        '422':
+          description: Dados inválidos (ex.: valor menor que 1 ou CARTAO sem tokenCartao)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+        '503':
+          description: Indisponível temporariamente. Pode ser repetido com a mesma Idempotency-Key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+              example:
+                codigo: INDISPONIVEL
+                mensagem: Serviço temporariamente indisponível
+  /pagamentos/{id}:
+    get:
+      summary: Consulta um pagamento (não é usado pelo serviço de Pedidos)
+      operationId: consultarPagamento
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Pagamento encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pagamento'
+        '404':
+          description: Pagamento inexistente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Erro'
+components:
+  schemas:
+    NovoPagamento:
+      type: object
+      required: [pedidoId, valorCentavos, metodo]
+      additionalProperties: false
+      properties:
+        pedidoId:
+          type: string
+          minLength: 1
+        valorCentavos:
+          type: integer
+          format: int64
+          minimum: 1
+          description: Valor total em centavos (R$ 179,80 = 17980)
+        metodo:
+          type: string
+          enum: [PIX, CARTAO]
+        tokenCartao:
+          type: string
+          minLength: 1
+          description: Obrigatório quando metodo = CARTAO. Não enviar quando metodo = PIX.
+    Pagamento:
+      type: object
+      required: [id, pedidoId, valorCentavos, metodo, status]
+      properties:
+        id:
+          type: string
+        pedidoId:
+          type: string
+        valorCentavos:
+          type: integer
+          format: int64
+        metodo:
+          type: string
+          enum: [PIX, CARTAO]
+        status:
+          type: string
+          enum: [APROVADO, RECUSADO]
+        motivo:
+          type: string
+          nullable: true
+          description: Preenchido quando RECUSADO (SALDO_INSUFICIENTE, CARTAO_BLOQUEADO, LIMITE_PIX_EXCEDIDO ou SUSPEITA_DE_FRAUDE)
+    Erro:
+      type: object
+      required: [codigo, mensagem]
+      properties:
+        codigo:
+          type: string
+        mensagem:
+          type: string
