@@ -1,0 +1,1170 @@
+[
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaNoPagamentoEFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#pagamentoRecusado",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#recusaComFalhaNaLiberacao(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#recusaComFalhaNaLiberacao(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#recusaComFalhaNaLiberacao(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#recusaComTimeoutNaLiberacao",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[7]"
+                   ]
+    },
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva"
+                   ]
+    },
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: confirmação (POST /reservas/{id}/confirmacao) e liberação (DELETE /reservas/{id})#liberacaoComErroDepoisDeRecusa",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: confirmação (POST /reservas/{id}/confirmacao) e liberação (DELETE /reservas/{id})#liberacaoComTimeoutDepoisDeFalhaNoPagamentos",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[6]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[6]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaHtml",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutPagamentosForaDoArTest#POST /pedidos: Pagamentos fora do ar#conexaoRecusada"
+                   ]
+    },
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]"
+                   ]
+    },
+    {
+        "mutante":  "D1",
+        "nome":  "SEM_COMPENSACAO",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.falhas.CheckoutPagamentosForaDoArTest#POST /pedidos: Pagamentos fora do ar#conexaoRecusada",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#pagamentoComPaginaHtmlDeProxy",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#cartaoEnviaOTokenAoPagamentos",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#pixComUmItemConfirmaOPedido",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#precoEnviadoPeloClienteEIgnorado",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#variosItensSomamPrecoVezesQuantidade"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutComCartaoEnviaOToken"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#tentativasSaoIdempotentes"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D2",
+        "nome":  "VALOR_EM_REAIS",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutComCartaoEnviaOToken",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf14_consultaDePedidoRecusado",
+                       "com.estudo.checkout.fluxos.FluxosComplementaresIT#com.estudo.checkout.fluxos.FluxosComplementaresIT#precoEnviadoPeloClienteEIgnorado"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutConfirmacaoIT#Checkout: confirmação da reserva depois do pagamento aprovado#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutConfirmacaoIT#Checkout: confirmação da reserva depois do pagamento aprovado#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutConfirmacaoIT#Checkout: confirmação da reserva depois do pagamento aprovado#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutConfirmacaoIT#Checkout: confirmação da reserva depois do pagamento aprovado#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutConfirmacaoIT#Checkout: confirmação da reserva depois do pagamento aprovado#timeoutNaConfirmacaoNaoCancelaPedidoPago",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#pixComUmItemConfirmaOPedido"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf05_totalZeroNaoCobra",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: confirmação (POST /reservas/{id}/confirmacao) e liberação (DELETE /reservas/{id})#confirmacaoComErro",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: confirmação (POST /reservas/{id}/confirmacao) e liberação (DELETE /reservas/{id})#confirmacaoComTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoAposConexaoResetada",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoAposTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoNaTerceiraTentativa"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D3",
+        "nome":  "NAO_CONFIRMA_RESERVA",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf05_totalZeroNaoCobra",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado"
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#semEstoque",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#semEstoqueComCorpoDeErroIlegivel(String, String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#semEstoqueComCorpoDeErroIlegivel(String, String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#semEstoqueComCorpoDeErroIlegivel(String, String, String)[3]"
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf08_semEstoque"
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#semEstoqueNaoCobra",
+                       "com.estudo.checkout.experimentos.contrato.v1.EstoqueContratoTest#com.estudo.checkout.experimentos.contrato.v1.EstoqueContratoTest#reservaComCorpoDeErroIlegivel",
+                       "com.estudo.checkout.experimentos.contrato.v1.EstoqueContratoTest#com.estudo.checkout.experimentos.contrato.v1.EstoqueContratoTest#reservaSemEstoque"
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conflitoComCorpoIlegivel(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conflitoComCorpoIlegivel(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conflitoComCorpoIlegivel(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conflitoComCorpoIlegivel(String)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conflitoComHtml"
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "falhas-v2",
+        "detectou":  false,
+        "testes":  [
+
+                   ]
+    },
+    {
+        "mutante":  "D4",
+        "nome":  "ESTOQUE_409_VIRA_FALHA",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#semEstoqueNaoCobra",
+                       "com.estudo.checkout.contrato.EstoqueContratoTest#com.estudo.checkout.contrato.EstoqueContratoTest#reservaComCorpoDeErroIlegivel",
+                       "com.estudo.checkout.contrato.EstoqueContratoTest#com.estudo.checkout.contrato.EstoqueContratoTest#reservaSemEstoque",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#conflitoComCorpoIlegivel(String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#conflitoComCorpoIlegivel(String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#conflitoComCorpoIlegivel(String)[3]",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf08_semEstoque"
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaNoPagamentoEFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[7]"
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "cenarios-v2",
+        "detectou":  false,
+        "testes":  [
+
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEmTodasAsTentativas"
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoAposConexaoResetada",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoAposTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#sucessoNaTerceiraTentativa",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#tentativasSaoIdempotentes",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#timeoutEmTodasAsTentativas"
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D5",
+        "nome":  "SEM_RETENTATIVA",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#cadaPedidoUsaSuaPropriaChaveDeIdempotencia",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#pixComUmItemConfirmaOPedido"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutComCartaoEnviaOToken",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pixComTokenNaoEnviaTokenCartaoAoPagamentos",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#cartaoEnviaOToken",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#mesmoPedidoReenviaMesmaChaveEMesmoCorpo",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#pixAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#repeticaoIdempotenteResponde200",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#valorCentavosInt64"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#pedidosDistintosNaoCompartilhamChave",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#tentativasSaoIdempotentes"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D6",
+        "nome":  "NOVA_CHAVE_POR_TENTATIVA",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutComCartaoEnviaOToken",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pixComTokenNaoEnviaTokenCartaoAoPagamentos",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#cartaoEnviaOToken",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#mesmoPedidoReenviaMesmaChaveEMesmoCorpo",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#pixAprovado",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#repeticaoIdempotenteResponde200",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#valorCentavosInt64",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#cadaPedidoUsaSuaPropriaChaveDeIdempotencia",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaTransitoriaSeguidaDeSucesso(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutSucessoIT#Checkout: caminho feliz#pixComUmItemConfirmaOPedido"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "cenarios-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#com.estudo.checkout.experimentos.cenarios.v2.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#checkoutComCartaoEnviaOToken",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pixComTokenNaoEnviaTokenCartaoAoPagamentos",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#cartaoEnviaOToken",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#mesmoPedidoReenviaMesmaChaveEMesmoCorpo",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#pixAprovado",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#recusaNaoEErro(String)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#repeticaoIdempotenteResponde200",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[3]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#valorCentavosInt64"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#pedidosDistintosNaoCompartilhamChave",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#tentativasSaoIdempotentes"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente"
+                   ]
+    },
+    {
+        "mutante":  "D7",
+        "nome":  "SEM_IDEMPOTENCY_KEY",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutAprovado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#checkoutComCartaoEnviaOToken",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[1]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[2]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaConfirmacaoNaoCancelaPedidoPago(int)[3]",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#falhaNaLiberacaoNaoMudaOResultado",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentoRecusadoLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosSeRecuperaDeFalhaTransitoria",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pixComTokenNaoEnviaTokenCartaoAoPagamentos",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#cartaoEnviaOToken",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#esgotaAsTentativas",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#falhaTransitoriaEDepoisSucessoRepeteComAMesmaChave(int)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#mesmoPedidoReenviaMesmaChaveEMesmoCorpo",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#pixAprovado",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#recusaNaoEErro(String)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#repeticaoIdempotenteResponde200",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[3]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#sucessoSomenteNaUltimaTentativa",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEDepoisSucesso",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#valorCentavosInt64",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#pedidosDiferentesUsamChavesDiferentes",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#confirmacaoRejeitadaComReservaExpirada",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoAprovadoNaUltimaTentativaPermitida",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoInstavelQueSeRecupera",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#recusaComFalhaNaLiberacao(String, ResponseDefinitionBuilder)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#respostaPerdidaERepeticaoIdempotente",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf01_pixComUmItem",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf02_cartaoComToken",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf03_pixDescartaOTokenDoCartao",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf04_variosItensEQuantidades",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf09_pagamentoRecusado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf13_consultaDePedidoConfirmado",
+                       "com.estudo.checkout.fluxos.CheckoutFluxosIT#com.estudo.checkout.fluxos.CheckoutFluxosIT#cf14_consultaDePedidoRecusado"
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[6]"
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "cenarios-v2",
+        "detectou":  false,
+        "testes":  [
+
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]"
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[6]"
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido"
+                   ]
+    },
+    {
+        "mutante":  "D8",
+        "nome":  "REPETE_ERRO_4XX",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#erroDoClienteNaoERepetido(int, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido"
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaConsultaDePreco(int)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaReserva(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaReserva(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaReserva(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#erroHttpNaReserva(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#produtoForaDoContrato(String, String)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#reservaForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#reservaForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#reservaForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#timeoutNaConsultaDePreco",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutEstoqueIT#Checkout: cenários do Estoque#timeoutNaReserva",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#erro4xxNaoEhRepetido(int)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#falhaNoPagamentoEFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[3]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[4]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[5]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[6]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#todasAsTentativasFalham(FalhaTransitoria)[7]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutServicosForaDoArIT#Checkout: serviços externos fora do ar#estoqueComConexaoRecusada"
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "cenarios-v2",
+        "detectou":  false,
+        "testes":  [
+
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#estoqueIndisponivelNaConsultaNaoReservaNemCobra",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#estoqueIndisponivelNaReservaNaoCobraNemLibera",
+                       "com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#com.estudo.checkout.experimentos.contrato.v1.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva"
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: confirmação (POST /reservas/{id}/confirmacao) e liberação (DELETE /reservas/{id})#liberacaoComTimeoutDepoisDeFalhaNoPagamentos",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#conexaoEncerrada",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro4xxInesperado(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro4xxInesperado(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro4xxInesperado(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro4xxInesperado(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro5xx(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro5xx(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro5xx(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#erro5xx(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#falhaNoSegundoItem",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[6]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[7]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#respostaForaDoContrato(String)[8]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: consulta de preço (GET /produtos/{sku})#timeout",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#conexaoEncerrada",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#erro4xxInesperado(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#erro4xxInesperado(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#erro5xx(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#erro5xx(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#reservaSemId(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#reservaSemId(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#reservaSemId(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Estoque: reserva (POST /reservas)#timeout",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#O erro do serviço externo não vaza para o cliente do checkout#erroDoEstoque",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#O erro do serviço externo não vaza para o cliente do checkout#erroDoPagamentos",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#erro4xx(int)[6]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[5]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[6]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaHtml",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#erro5xxEmTodasAsTentativas(int)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas transitórias (com retry)#timeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutPagamentosForaDoArTest#POST /pedidos: Pagamentos fora do ar#conexaoRecusada"
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#consultaDePrecoComConexaoResetada",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#consultaDePrecoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#erroDeServidorNaConsultaDoSegundoItem",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#precoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#precoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#precoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#precoForaDoContrato(String, String)[4]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#reservaComRespostaVazia",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#reservaInstavelNaoERepetida",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#reservaMaisLentaQueOTimeout",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#reservaRejeitadaComErro4xxInesperado",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#reservaSemIdForaDoContrato"
+                   ]
+    },
+    {
+        "mutante":  "D9",
+        "nome":  "FALHA_VIRA_RECUSA",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#estoqueIndisponivelNaConsultaNaoReservaNemCobra",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#estoqueIndisponivelNaReservaNaoCobraNemLibera",
+                       "com.estudo.checkout.contrato.CheckoutContratoTest#com.estudo.checkout.contrato.CheckoutContratoTest#pagamentosIndisponivelLiberaAReserva",
+                       "com.estudo.checkout.falhas.CheckoutPagamentosForaDoArTest#POST /pedidos: Pagamentos fora do ar#conexaoRecusada",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#erroDoEstoqueNaoVaza",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#erroDoPagamentosNaoVaza",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#pagamentoComPaginaHtmlDeProxy",
+                       "com.estudo.checkout.falhas.FalhasComplementaresIT#com.estudo.checkout.falhas.FalhasComplementaresIT#precoAbsurdoNaoEstouraOTotal",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#consultaDePrecoComConexaoResetada",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#consultaDePrecoMaisLentaQueOTimeout",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erro4xxDepoisDeFalhaTransitoriaInterrompeAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#erroDeServidorNaConsultaDoSegundoItem",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelComFalhaNaLiberacao",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoIndisponivelEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoMaisLentoQueOTimeoutEmTodasAsTentativas",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoRejeitadoComErro4xxNaoERepetido",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#precoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#precoForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#precoForaDoContrato(String, String)[3]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#precoForaDoContrato(String, String)[4]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#reservaComRespostaVazia",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#reservaInstavelNaoERepetida",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#reservaMaisLentaQueOTimeout",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#reservaRejeitadaComErro4xxInesperado",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#reservaSemIdForaDoContrato"
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "cenarios-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[2]",
+                       "com.estudo.checkout.experimentos.cenarios.v1.CheckoutPagamentosIT#Checkout: cenários do Pagamentos#respostaForaDoContrato(String, String)[4]"
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "cenarios-v2",
+        "detectou":  false,
+        "testes":  [
+
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "contrato-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#com.estudo.checkout.experimentos.contrato.v1.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]"
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "falhas-v1",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[2]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[3]",
+                       "com.estudo.checkout.experimentos.falhas.v1.CheckoutFalhasIntegracaoTest#Pagamentos: falhas que não se repetem#respostaForaDoContrato(String)[4]"
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "falhas-v2",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#com.estudo.checkout.experimentos.falhas.v2.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]"
+                   ]
+    },
+    {
+        "mutante":  "D10",
+        "nome":  "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+        "suite":  "final",
+        "detectou":  true,
+        "testes":  [
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[1]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[2]",
+                       "com.estudo.checkout.contrato.PagamentosContratoTest#com.estudo.checkout.contrato.PagamentosContratoTest#respostaForaDoContratoNaoEAceitaNemRepetida(String)[4]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[1]",
+                       "com.estudo.checkout.falhas.FalhasComunicacaoIT#com.estudo.checkout.falhas.FalhasComunicacaoIT#pagamentoForaDoContrato(String, String)[2]"
+                   ]
+    }
+]

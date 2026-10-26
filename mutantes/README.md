@@ -31,4 +31,4 @@ powershell -ExecutionPolicy Bypass -File mutantes\avaliar-mutantes.ps1 -Somente 
 
 O script nunca altera o projeto. Para cada defeito ele copia o projeto para uma pasta temporária, aplica a troca, roda
 todas as suítes (`-Pexperimentos`) e compara com a execução no código correto. O resultado vai para
-[`resultado.md`](resultado.md) e `resultado.json` (quais testes detectaram cada defeito). Leva cerca de 10 minutos.
+[`resultado.md`](resultado.md) e `resultado.json` (quais testes detectaram cada defeito). Leva cerca de 15 minutos.
