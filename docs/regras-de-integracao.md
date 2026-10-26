@@ -35,6 +35,18 @@ sequenceDiagram
 | **R7** Pagamento aprovado | Pagamento aprovado ou pedido com total 0: `POST /reservas/{id}/confirmacao` e **201** `CONFIRMADO`. |
 | **R8** Pagamento recusado | Compensação: `DELETE /reservas/{id}`. **402** `PAGAMENTO_RECUSADO`, com o `motivo` informado pelo Pagamentos. |
 | **R9** Pagamentos com falha | Indisponível depois das tentativas, resposta 4xx ou resposta fora do contrato (ex.: sem `id` ou `status`): `DELETE /reservas/{id}` e **503** `FALHA_INTEGRACAO`. Indisponibilidade nunca é tratada como recusa. |
-| **R10** Estoque com falha | Timeout, falha de conexão, HTTP 5xx ou resposta fora do contrato (`precoCentavos` ausente, negativo, com casa decimal ou tão alto que o total do pedido estoura; reserva sem `id`): **503** `FALHA_INTEGRACAO`, sem chamar o Pagamentos. A reserva não é repetida automaticamente (não é idempotente). |
+| **R10** Estoque com falha | Timeout, falha de conexão, HTTP 5xx, HTTP 4xx inesperado (qualquer um além do 404 da R3 e do 409 da R4) ou resposta fora do contrato (`precoCentavos` ausente, negativo, com casa decimal ou tão alto que o total do pedido estoura; reserva sem `id`): **503** `FALHA_INTEGRACAO`, sem chamar o Pagamentos. A reserva não é repetida automaticamente (não é idempotente). |
 | **R11** Falha depois da cobrança | Falha ao confirmar a reserva depois do pagamento aprovado: o pedido continua **201** `CONFIRMADO` (a pendência vai para o log). Falha ao liberar a reserva: o status do pedido não muda (a reserva expira sozinha no Estoque em 15 minutos). |
 | **R12** Consulta | Todo pedido que passa pela validação é gravado com o status final e pode ser consultado em `GET /pedidos/{id}` (404 se não existir). O `motivo` de `FALHA_INTEGRACAO` começa com o nome do serviço (`estoque: ...` ou `pagamentos: ...`). |
+
+## Riscos aceitos
+
+Estes pontos foram levantados pelas respostas da LLM e ficaram fora do escopo, de propósito:
+
+- **Reserva órfã.** Se o `POST /reservas` der timeout depois de o Estoque já ter criado a reserva, o serviço não
+  recebe o `id` e não tem o que liberar. A reserva expira sozinha em 15 minutos.
+- **Cobrança sem pedido confirmado.** Se as três tentativas de pagamento derem timeout, o Pagamentos pode ter
+  processado alguma delas e só a resposta se perdeu. O pedido fica `FALHA_INTEGRACAO` e a reserva é liberada; a
+  conciliação (consultar o pagamento pela `Idempotency-Key`) não faz parte desta atividade.
+- **Leitor tolerante.** Os clients validam só os campos que o serviço usa (`id`, `status`, `precoCentavos`). Campos
+  obrigatórios do contrato que o serviço não lê não derrubam o pedido.
