@@ -76,7 +76,9 @@ Copiar-Projeto $pastaOriginal
 $original = Executar-Testes $pastaOriginal
 if ($null -eq $original) { throw 'O projeto original não compilou.' }
 
-$suites = $original.Keys | ForEach-Object { Suite-Do-Teste ($_ -split '#')[0] } | Sort-Object -Unique
+# As suítes do experimento do oráculo foram geradas a partir de código com bugs e têm avaliação própria.
+$suites = $original.Keys | ForEach-Object { Suite-Do-Teste ($_ -split '#')[0] } | Where-Object { $_ -notlike 'oraculo-*' } |
+    Sort-Object -Unique
 $resumoSuites = foreach ($suite in $suites) {
     $testes = $original.Keys | Where-Object { (Suite-Do-Teste ($_ -split '#')[0]) -eq $suite }
     [pscustomobject]@{
