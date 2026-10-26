@@ -72,16 +72,21 @@ public class PedidoService {
     }
 
     private void cobrar(Pedido pedido, String tokenCartao) {
-        ContratoPagamentos.Pagamento pagamento = pagamentosClient.autorizar(
-                pedido.getId(), pedido.getTotalCentavos(), pedido.getMetodoPagamento().name(), tokenCartao);
-        pedido.registrarPagamento(pagamento.id());
-        if (pagamento.status() == ContratoPagamentos.StatusPagamento.APROVADO) {
-            confirmarReserva(pedido);
-            pedido.finalizar(StatusPedido.CONFIRMADO, null);
-        } else {
-            desfazerReserva(pedido);
-            pedido.finalizar(StatusPedido.PAGAMENTO_RECUSADO, pagamento.motivo());
+        // Pedido só com itens gratuitos não passa pelo Pagamentos, que exige valorCentavos >= 1.
+        if (pedido.getTotalCentavos() > 0) {
+            // O contrato do Pagamentos não aceita tokenCartao em pagamento PIX.
+            String tokenDoPagamento = pedido.getMetodoPagamento() == MetodoPagamento.CARTAO ? tokenCartao : null;
+            ContratoPagamentos.Pagamento pagamento = pagamentosClient.autorizar(
+                    pedido.getId(), pedido.getTotalCentavos(), pedido.getMetodoPagamento().name(), tokenDoPagamento);
+            pedido.registrarPagamento(pagamento.id());
+            if (pagamento.status() != ContratoPagamentos.StatusPagamento.APROVADO) {
+                desfazerReserva(pedido);
+                pedido.finalizar(StatusPedido.PAGAMENTO_RECUSADO, pagamento.motivo());
+                return;
+            }
         }
+        confirmarReserva(pedido);
+        pedido.finalizar(StatusPedido.CONFIRMADO, null);
     }
 
     /** O pagamento já foi aprovado, então uma falha aqui não cancela o pedido: a confirmação fica pendente. */
