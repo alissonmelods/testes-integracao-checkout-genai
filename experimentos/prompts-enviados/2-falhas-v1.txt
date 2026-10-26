@@ -1,0 +1,923 @@
+Atue como um engenheiro de QA especialista em testes de integração e resiliência.
+
+Tenho um serviço de Pedidos em Java 21 com Spring Boot 3.5 que, no checkout (POST /pedidos), chama via HTTP a
+API de Estoque (consulta de preço e reserva dos itens) e a API de Pagamentos (cobrança).
+
+Gere casos de teste de integração para os cenários de erro na comunicação entre o serviço de Pedidos e essas
+APIs e implemente os testes em JUnit 5.
+
+Segue o código do serviço:
+
+### pom.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.16</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.estudo</groupId>
+    <artifactId>checkout-pedidos</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>checkout-pedidos</name>
+    <description>Serviço de Pedidos que integra com as APIs de Estoque e Pagamentos (testes de integração com GenAI)</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <wiremock.version>3.13.1</wiremock.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock-standalone</artifactId>
+            <version>${wiremock.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                        <include>**/*IT.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- mvnw test -Pexperimentos: inclui os testes gerados pela LLM em cada experimento (experimentos/java). -->
+        <profile>
+            <id>experimentos</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>adicionar-testes-dos-experimentos</id>
+                                <phase>generate-test-sources</phase>
+                                <goals>
+                                    <goal>add-test-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>experimentos/java</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
+```
+
+### src/main/resources/application.yml
+```yaml
+spring:
+  application:
+    name: checkout-pedidos
+  jackson:
+    deserialization:
+      # Valor em centavos com casa decimal (ex.: 89.9) é resposta fora do contrato e não pode ser truncado em silêncio.
+      accept-float-as-int: false
+
+servicos:
+  estoque:
+    url: http://localhost:8081
+    timeout-ms: 2000
+  pagamentos:
+    url: http://localhost:8082
+    timeout-ms: 3000
+    max-tentativas: 3
+```
+
+### src/main/java/com/estudo/checkout/CheckoutApplication.java
+```java
+package com.estudo.checkout;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CheckoutApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CheckoutApplication.class, args);
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/PedidoController.java
+```java
+package com.estudo.checkout.pedido;
+
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/pedidos")
+public class PedidoController {
+
+    private final PedidoService pedidoService;
+    private final PedidoRepository pedidoRepository;
+
+    public PedidoController(PedidoService pedidoService, PedidoRepository pedidoRepository) {
+        this.pedidoService = pedidoService;
+        this.pedidoRepository = pedidoRepository;
+    }
+
+    @PostMapping
+    public ResponseEntity<PedidoResponse> criar(@Valid @RequestBody NovoPedidoRequest requisicao) {
+        Pedido pedido = pedidoService.criar(requisicao);
+        return ResponseEntity.status(pedido.getStatus().getStatusHttp()).body(PedidoResponse.de(pedido));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PedidoResponse> buscar(@PathVariable String id) {
+        return pedidoRepository.buscarPorId(id)
+                .map(pedido -> ResponseEntity.ok(PedidoResponse.de(pedido)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/PedidoService.java
+```java
+package com.estudo.checkout.pedido;
+
+import com.estudo.checkout.integracao.FalhaIntegracaoException;
+import com.estudo.checkout.integracao.estoque.ContratoEstoque;
+import com.estudo.checkout.integracao.estoque.EstoqueClient;
+import com.estudo.checkout.integracao.estoque.EstoqueInsuficienteException;
+import com.estudo.checkout.integracao.estoque.ProdutoInexistenteException;
+import com.estudo.checkout.integracao.pagamentos.ContratoPagamentos;
+import com.estudo.checkout.integracao.pagamentos.PagamentosClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class PedidoService {
+
+    private static final Logger log = LoggerFactory.getLogger(PedidoService.class);
+
+    private final EstoqueClient estoqueClient;
+    private final PagamentosClient pagamentosClient;
+    private final PedidoRepository pedidoRepository;
+
+    public PedidoService(EstoqueClient estoqueClient, PagamentosClient pagamentosClient,
+                         PedidoRepository pedidoRepository) {
+        this.estoqueClient = estoqueClient;
+        this.pagamentosClient = pagamentosClient;
+        this.pedidoRepository = pedidoRepository;
+    }
+
+    /**
+     * Checkout: consulta o preço de cada item no Estoque, reserva os itens, cobra no Pagamentos e confirma a reserva.
+     * <p>
+     * O pedido é gravado com o status que representa o resultado (ver {@link StatusPedido}). Quando a cobrança não
+     * acontece, por recusa ou por falha de integração, a reserva é desfeita para devolver os itens ao estoque.
+     */
+    public Pedido criar(NovoPedidoRequest requisicao) {
+        List<ItemPedido> itens = requisicao.itens().stream()
+                .map(item -> new ItemPedido(item.sku(), item.quantidade()))
+                .toList();
+        Pedido pedido = new Pedido(requisicao.clienteId(), itens, requisicao.metodoPagamento());
+        try {
+            precificar(pedido);
+            reservar(pedido);
+            cobrar(pedido, requisicao.tokenCartao());
+        } catch (ProdutoInexistenteException e) {
+            pedido.finalizar(StatusPedido.PRODUTO_INEXISTENTE, e.getMessage());
+        } catch (EstoqueInsuficienteException e) {
+            pedido.finalizar(StatusPedido.SEM_ESTOQUE, e.getMessage());
+        } catch (FalhaIntegracaoException e) {
+            desfazerReserva(pedido);
+            pedido.finalizar(StatusPedido.FALHA_INTEGRACAO, e.getMessage());
+        }
+        return pedidoRepository.salvar(pedido);
+    }
+
+    /** O preço vem sempre do Estoque: o cliente não informa preço no pedido. */
+    private void precificar(Pedido pedido) {
+        for (ItemPedido item : pedido.getItens()) {
+            ContratoEstoque.Produto produto = estoqueClient.consultarProduto(item.getSku());
+            item.definirPrecoUnitario(produto.precoCentavos());
+        }
+    }
+
+    private void reservar(Pedido pedido) {
+        List<ContratoEstoque.ItemReserva> itens = pedido.getItens().stream()
+                .map(item -> new ContratoEstoque.ItemReserva(item.getSku(), item.getQuantidade()))
+                .toList();
+        ContratoEstoque.Reserva reserva = estoqueClient.reservar(pedido.getId(), itens);
+        pedido.registrarReserva(reserva.id());
+    }
+
+    private void cobrar(Pedido pedido, String tokenCartao) {
+        ContratoPagamentos.Pagamento pagamento = pagamentosClient.autorizar(
+                pedido.getId(), pedido.getTotalCentavos(), pedido.getMetodoPagamento().name(), tokenCartao);
+        pedido.registrarPagamento(pagamento.id());
+        if (pagamento.status() == ContratoPagamentos.StatusPagamento.APROVADO) {
+            confirmarReserva(pedido);
+            pedido.finalizar(StatusPedido.CONFIRMADO, null);
+        } else {
+            desfazerReserva(pedido);
+            pedido.finalizar(StatusPedido.PAGAMENTO_RECUSADO, pagamento.motivo());
+        }
+    }
+
+    /** O pagamento já foi aprovado, então uma falha aqui não cancela o pedido: a confirmação fica pendente. */
+    private void confirmarReserva(Pedido pedido) {
+        try {
+            estoqueClient.confirmar(pedido.getReservaId());
+        } catch (FalhaIntegracaoException e) {
+            log.error("Pedido {} pago, mas a confirmação da reserva {} ficou pendente: {}",
+                    pedido.getId(), pedido.getReservaId(), e.getMessage());
+        }
+    }
+
+    /**
+     * Compensação: devolve ao estoque os itens reservados de um pedido que não vai ser cobrado.
+     * Se a liberação falhar, a reserva expira sozinha no Estoque (15 minutos, pelo contrato), então só registramos o erro.
+     */
+    private void desfazerReserva(Pedido pedido) {
+        if (pedido.getReservaId() == null) {
+            return;
+        }
+        try {
+            estoqueClient.liberar(pedido.getReservaId());
+        } catch (FalhaIntegracaoException e) {
+            log.error("Não foi possível liberar a reserva {} do pedido {}: {}",
+                    pedido.getReservaId(), pedido.getId(), e.getMessage());
+        }
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/NovoPedidoRequest.java
+```java
+package com.estudo.checkout.pedido;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+import java.util.List;
+
+/** Corpo de POST /pedidos. O preço não faz parte do pedido: ele é consultado no Estoque. */
+public record NovoPedidoRequest(
+        @NotBlank String clienteId,
+        @NotEmpty @Size(max = 20) List<@Valid @NotNull Item> itens,
+        @NotNull MetodoPagamento metodoPagamento,
+        String tokenCartao) {
+
+    public record Item(@NotBlank String sku, @Min(1) @Max(99) int quantidade) {
+    }
+
+    @JsonIgnore
+    @AssertTrue(message = "tokenCartao é obrigatório quando metodoPagamento é CARTAO")
+    public boolean isTokenCartaoInformadoQuandoCartao() {
+        return metodoPagamento != MetodoPagamento.CARTAO || (tokenCartao != null && !tokenCartao.isBlank());
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/PedidoResponse.java
+```java
+package com.estudo.checkout.pedido;
+
+import java.util.List;
+
+public record PedidoResponse(
+        String id,
+        String clienteId,
+        StatusPedido status,
+        String motivo,
+        MetodoPagamento metodoPagamento,
+        Long totalCentavos,
+        List<Item> itens,
+        String reservaId,
+        String pagamentoId) {
+
+    public record Item(String sku, int quantidade, Long precoUnitarioCentavos) {
+    }
+
+    static PedidoResponse de(Pedido pedido) {
+        List<Item> itens = pedido.getItens().stream()
+                .map(item -> new Item(item.getSku(), item.getQuantidade(), item.getPrecoUnitarioCentavos()))
+                .toList();
+        return new PedidoResponse(pedido.getId(), pedido.getClienteId(), pedido.getStatus(), pedido.getMotivo(),
+                pedido.getMetodoPagamento(), pedido.getTotalCentavos(), itens, pedido.getReservaId(),
+                pedido.getPagamentoId());
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/Pedido.java
+```java
+package com.estudo.checkout.pedido;
+
+import java.util.List;
+import java.util.UUID;
+
+public class Pedido {
+
+    private final String id = UUID.randomUUID().toString();
+    private final String clienteId;
+    private final List<ItemPedido> itens;
+    private final MetodoPagamento metodoPagamento;
+    private StatusPedido status;
+    private String motivo;
+    private String reservaId;
+    private String pagamentoId;
+
+    public Pedido(String clienteId, List<ItemPedido> itens, MetodoPagamento metodoPagamento) {
+        this.clienteId = clienteId;
+        this.itens = List.copyOf(itens);
+        this.metodoPagamento = metodoPagamento;
+    }
+
+    /** Soma de preço unitário x quantidade, ou {@code null} enquanto algum item ainda não tem preço. */
+    public Long getTotalCentavos() {
+        long totalCentavos = 0;
+        for (ItemPedido item : itens) {
+            if (item.getPrecoUnitarioCentavos() == null) {
+                return null;
+            }
+            totalCentavos += item.getPrecoUnitarioCentavos() * item.getQuantidade();
+        }
+        return totalCentavos;
+    }
+
+    void registrarReserva(String reservaId) {
+        this.reservaId = reservaId;
+    }
+
+    void registrarPagamento(String pagamentoId) {
+        this.pagamentoId = pagamentoId;
+    }
+
+    void finalizar(StatusPedido status, String motivo) {
+        this.status = status;
+        this.motivo = motivo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getClienteId() {
+        return clienteId;
+    }
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public MetodoPagamento getMetodoPagamento() {
+        return metodoPagamento;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public String getReservaId() {
+        return reservaId;
+    }
+
+    public String getPagamentoId() {
+        return pagamentoId;
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/ItemPedido.java
+```java
+package com.estudo.checkout.pedido;
+
+public class ItemPedido {
+
+    private final String sku;
+    private final int quantidade;
+    private Long precoUnitarioCentavos;
+
+    public ItemPedido(String sku, int quantidade) {
+        this.sku = sku;
+        this.quantidade = quantidade;
+    }
+
+    void definirPrecoUnitario(long precoUnitarioCentavos) {
+        this.precoUnitarioCentavos = precoUnitarioCentavos;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public Long getPrecoUnitarioCentavos() {
+        return precoUnitarioCentavos;
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/StatusPedido.java
+```java
+package com.estudo.checkout.pedido;
+
+import org.springframework.http.HttpStatus;
+
+/** Resultado do checkout. Cada status tem o código HTTP devolvido por POST /pedidos. */
+public enum StatusPedido {
+
+    /** Pagamento aprovado e reserva confirmada no Estoque (ou com a confirmação pendente). */
+    CONFIRMADO(HttpStatus.CREATED),
+
+    /** O Estoque não tinha a quantidade pedida de algum item. Nada foi cobrado. */
+    SEM_ESTOQUE(HttpStatus.CONFLICT),
+
+    /** Algum SKU não existe no Estoque. Nada foi reservado nem cobrado. */
+    PRODUTO_INEXISTENTE(HttpStatus.UNPROCESSABLE_ENTITY),
+
+    /** O Pagamentos recusou a cobrança. A reserva foi desfeita. */
+    PAGAMENTO_RECUSADO(HttpStatus.PAYMENT_REQUIRED),
+
+    /** Estoque ou Pagamentos indisponível, com erro inesperado ou resposta fora do contrato. A reserva, se havia, foi desfeita. */
+    FALHA_INTEGRACAO(HttpStatus.SERVICE_UNAVAILABLE);
+
+    private final HttpStatus statusHttp;
+
+    StatusPedido(HttpStatus statusHttp) {
+        this.statusHttp = statusHttp;
+    }
+
+    public HttpStatus getStatusHttp() {
+        return statusHttp;
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/MetodoPagamento.java
+```java
+package com.estudo.checkout.pedido;
+
+public enum MetodoPagamento {
+    PIX,
+    CARTAO
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/PedidoRepository.java
+```java
+package com.estudo.checkout.pedido;
+
+import org.springframework.stereotype.Repository;
+
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+
+/** Guarda os pedidos em memória: a persistência não faz parte do escopo desta atividade. */
+@Repository
+public class PedidoRepository {
+
+    private final Map<String, Pedido> pedidos = new ConcurrentHashMap<>();
+
+    public Pedido salvar(Pedido pedido) {
+        pedidos.put(pedido.getId(), pedido);
+        return pedido;
+    }
+
+    public Optional<Pedido> buscarPorId(String id) {
+        return Optional.ofNullable(pedidos.get(id));
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/pedido/TratadorDeErros.java
+```java
+package com.estudo.checkout.pedido;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.List;
+
+/** Entrada inválida é rejeitada com 400 antes de qualquer chamada ao Estoque ou ao Pagamentos. */
+@RestControllerAdvice
+public class TratadorDeErros {
+
+    public record ErroResponse(String codigo, List<String> detalhes) {
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErroResponse> dadosInvalidos(MethodArgumentNotValidException e) {
+        List<String> detalhes = e.getBindingResult().getAllErrors().stream()
+                .map(erro -> erro instanceof FieldError campo
+                        ? campo.getField() + ": " + campo.getDefaultMessage()
+                        : erro.getDefaultMessage())
+                .toList();
+        return ResponseEntity.badRequest().body(new ErroResponse("DADOS_INVALIDOS", detalhes));
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErroResponse> corpoIlegivel(HttpMessageNotReadableException e) {
+        return ResponseEntity.badRequest()
+                .body(new ErroResponse("DADOS_INVALIDOS", List.of("corpo da requisição ausente ou com formato inválido")));
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/FabricaRestClient.java
+```java
+package com.estudo.checkout.integracao;
+
+import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.web.client.RestClient;
+
+import java.net.http.HttpClient;
+import java.time.Duration;
+
+public final class FabricaRestClient {
+
+    private FabricaRestClient() {
+    }
+
+    /**
+     * Cria um RestClient com URL base e timeout de conexão e de leitura.
+     * Usa o HttpClient do JDK porque o HttpURLConnection pode repetir um POST por conta própria em algumas falhas de
+     * rede, o que atrapalharia o controle de tentativas feito pelos clients.
+     */
+    public static RestClient criar(RestClient.Builder builder, String urlBase, Duration timeout) {
+        HttpClient httpClient = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .connectTimeout(timeout)
+                .build();
+        JdkClientHttpRequestFactory requestFactory = new JdkClientHttpRequestFactory(httpClient);
+        requestFactory.setReadTimeout(timeout);
+        return builder.baseUrl(urlBase).requestFactory(requestFactory).build();
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/FalhaIntegracaoException.java
+```java
+package com.estudo.checkout.integracao;
+
+/**
+ * Falha na comunicação com um serviço externo: timeout, conexão recusada, status HTTP inesperado ou resposta fora do
+ * contrato. A mensagem começa com o nome do serviço (ex.: "pagamentos: indisponível após 3 tentativas").
+ */
+public class FalhaIntegracaoException extends RuntimeException {
+
+    private final String servico;
+
+    public FalhaIntegracaoException(String servico, String detalhe) {
+        this(servico, detalhe, null);
+    }
+
+    public FalhaIntegracaoException(String servico, String detalhe, Throwable causa) {
+        super(servico + ": " + detalhe, causa);
+        this.servico = servico;
+    }
+
+    public String getServico() {
+        return servico;
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/estoque/EstoqueClient.java
+```java
+package com.estudo.checkout.integracao.estoque;
+
+import com.estudo.checkout.integracao.FabricaRestClient;
+import com.estudo.checkout.integracao.FalhaIntegracaoException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
+
+import java.time.Duration;
+import java.util.List;
+
+/** Client da API de Estoque. As chamadas não são repetidas: a reserva não é idempotente. */
+@Component
+public class EstoqueClient {
+
+    private static final String SERVICO = "estoque";
+
+    private final RestClient restClient;
+
+    public EstoqueClient(RestClient.Builder builder,
+                         @Value("${servicos.estoque.url}") String url,
+                         @Value("${servicos.estoque.timeout-ms}") long timeoutMs) {
+        this.restClient = FabricaRestClient.criar(builder, url, Duration.ofMillis(timeoutMs));
+    }
+
+    public ContratoEstoque.Produto consultarProduto(String sku) {
+        ContratoEstoque.Produto produto;
+        try {
+            produto = restClient.get()
+                    .uri("/produtos/{sku}", sku)
+                    .retrieve()
+                    .body(ContratoEstoque.Produto.class);
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new ProdutoInexistenteException(sku);
+        } catch (RestClientException e) {
+            throw new FalhaIntegracaoException(SERVICO, "erro em GET /produtos/" + sku, e);
+        }
+        if (produto == null || produto.precoCentavos() == null || produto.precoCentavos() < 0) {
+            throw new FalhaIntegracaoException(SERVICO, "resposta de GET /produtos/" + sku + " fora do contrato");
+        }
+        return produto;
+    }
+
+    public ContratoEstoque.Reserva reservar(String pedidoId, List<ContratoEstoque.ItemReserva> itens) {
+        ContratoEstoque.Reserva reserva;
+        try {
+            reserva = restClient.post()
+                    .uri("/reservas")
+                    .body(new ContratoEstoque.NovaReserva(pedidoId, itens))
+                    .retrieve()
+                    .body(ContratoEstoque.Reserva.class);
+        } catch (HttpClientErrorException.Conflict e) {
+            ContratoEstoque.Erro erro = lerErro(e);
+            throw new EstoqueInsuficienteException(erro.sku(), erro.disponivel());
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new ProdutoInexistenteException(lerErro(e).sku());
+        } catch (RestClientException e) {
+            throw new FalhaIntegracaoException(SERVICO, "erro em POST /reservas", e);
+        }
+        if (reserva == null || reserva.id() == null) {
+            throw new FalhaIntegracaoException(SERVICO, "resposta de POST /reservas fora do contrato");
+        }
+        return reserva;
+    }
+
+    public void confirmar(String reservaId) {
+        try {
+            restClient.post()
+                    .uri("/reservas/{id}/confirmacao", reservaId)
+                    .retrieve()
+                    .toBodilessEntity();
+        } catch (RestClientException e) {
+            throw new FalhaIntegracaoException(SERVICO, "erro em POST /reservas/" + reservaId + "/confirmacao", e);
+        }
+    }
+
+    public void liberar(String reservaId) {
+        try {
+            restClient.delete()
+                    .uri("/reservas/{id}", reservaId)
+                    .retrieve()
+                    .toBodilessEntity();
+        } catch (RestClientException e) {
+            throw new FalhaIntegracaoException(SERVICO, "erro em DELETE /reservas/" + reservaId, e);
+        }
+    }
+
+    /** Um corpo de erro ilegível não pode esconder o motivo do 404/409, por isso cai num erro sem detalhes. */
+    private ContratoEstoque.Erro lerErro(HttpClientErrorException e) {
+        try {
+            ContratoEstoque.Erro erro = e.getResponseBodyAs(ContratoEstoque.Erro.class);
+            return erro != null ? erro : new ContratoEstoque.Erro(null, null, null, null);
+        } catch (RuntimeException corpoIlegivel) {
+            return new ContratoEstoque.Erro(null, null, null, null);
+        }
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/estoque/ContratoEstoque.java
+```java
+package com.estudo.checkout.integracao.estoque;
+
+import java.util.List;
+
+/**
+ * Mensagens da API de Estoque (contratos/estoque-api.yaml) do ponto de vista do serviço de Pedidos: só os campos que
+ * ele envia ou lê. Campos a mais na resposta são ignorados.
+ */
+public final class ContratoEstoque {
+
+    private ContratoEstoque() {
+    }
+
+    public record Produto(String sku, Long precoCentavos) {
+    }
+
+    public record NovaReserva(String pedidoId, List<ItemReserva> itens) {
+    }
+
+    public record ItemReserva(String sku, int quantidade) {
+    }
+
+    public record Reserva(String id, String status) {
+    }
+
+    public record Erro(String codigo, String mensagem, String sku, Integer disponivel) {
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/estoque/EstoqueInsuficienteException.java
+```java
+package com.estudo.checkout.integracao.estoque;
+
+public class EstoqueInsuficienteException extends RuntimeException {
+
+    public EstoqueInsuficienteException(String sku, Integer disponivel) {
+        super("estoque insuficiente para o SKU " + sku + " (disponível: " + disponivel + ")");
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/estoque/ProdutoInexistenteException.java
+```java
+package com.estudo.checkout.integracao.estoque;
+
+public class ProdutoInexistenteException extends RuntimeException {
+
+    public ProdutoInexistenteException(String sku) {
+        super("produto " + sku + " não existe no estoque");
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java
+```java
+package com.estudo.checkout.integracao.pagamentos;
+
+import com.estudo.checkout.integracao.FabricaRestClient;
+import com.estudo.checkout.integracao.FalhaIntegracaoException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
+
+import java.time.Duration;
+
+@Component
+public class PagamentosClient {
+
+    private static final Logger log = LoggerFactory.getLogger(PagamentosClient.class);
+    private static final String SERVICO = "pagamentos";
+
+    private final RestClient restClient;
+    private final int maxTentativas;
+
+    public PagamentosClient(RestClient.Builder builder,
+                            @Value("${servicos.pagamentos.url}") String url,
+                            @Value("${servicos.pagamentos.timeout-ms}") long timeoutMs,
+                            @Value("${servicos.pagamentos.max-tentativas}") int maxTentativas) {
+        this.restClient = FabricaRestClient.criar(builder, url, Duration.ofMillis(timeoutMs));
+        this.maxTentativas = maxTentativas;
+    }
+
+    /**
+     * Pede a autorização do pagamento de um pedido.
+     * <p>
+     * Timeout, falha de conexão e HTTP 5xx são falhas transitórias: a chamada é repetida até {@code maxTentativas}
+     * vezes, sempre com a mesma Idempotency-Key. Assim, se uma tentativa chegou a ser processada e só a resposta se
+     * perdeu, a API de Pagamentos devolve a cobrança original em vez de cobrar de novo. HTTP 4xx não é repetido,
+     * porque a próxima tentativa receberia a mesma resposta.
+     *
+     * @throws FalhaIntegracaoException quando as tentativas acabam, quando a API responde 4xx ou quando a resposta
+     *                                  está fora do contrato
+     */
+    public ContratoPagamentos.Pagamento autorizar(String pedidoId, long valorCentavos, String metodo, String tokenCartao) {
+        ContratoPagamentos.NovoPagamento novoPagamento =
+                new ContratoPagamentos.NovoPagamento(pedidoId, valorCentavos, metodo, tokenCartao);
+        RestClientException ultimaFalha = null;
+        for (int tentativa = 1; tentativa <= maxTentativas; tentativa++) {
+            try {
+                ContratoPagamentos.Pagamento pagamento = restClient.post()
+                        .uri("/pagamentos")
+                        .header("Idempotency-Key", chaveIdempotencia(pedidoId))
+                        .body(novoPagamento)
+                        .retrieve()
+                        .body(ContratoPagamentos.Pagamento.class);
+                return validarContrato(pagamento);
+            } catch (HttpServerErrorException | ResourceAccessException e) {
+                ultimaFalha = e;
+                log.warn("Tentativa {}/{} de pagamento do pedido {} falhou: {}",
+                        tentativa, maxTentativas, pedidoId, e.getMessage());
+            } catch (RestClientException e) {
+                throw new FalhaIntegracaoException(SERVICO, "erro não transitório em POST /pagamentos", e);
+            }
+        }
+        throw new FalhaIntegracaoException(SERVICO, "indisponível após " + maxTentativas + " tentativas", ultimaFalha);
+    }
+
+    /** A chave depende só do pedido, para que todas as tentativas de cobrar o mesmo pedido contem como uma só. */
+    private String chaveIdempotencia(String pedidoId) {
+        return "pedido-" + pedidoId;
+    }
+
+    private ContratoPagamentos.Pagamento validarContrato(ContratoPagamentos.Pagamento pagamento) {
+        if (pagamento == null || pagamento.id() == null || pagamento.status() == null) {
+            throw new FalhaIntegracaoException(SERVICO, "resposta de POST /pagamentos fora do contrato");
+        }
+        return pagamento;
+    }
+}
+```
+
+### src/main/java/com/estudo/checkout/integracao/pagamentos/ContratoPagamentos.java
+```java
+package com.estudo.checkout.integracao.pagamentos;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+/**
+ * Mensagens da API de Pagamentos (contratos/pagamentos-api.yaml) do ponto de vista do serviço de Pedidos: só os
+ * campos que ele envia ou lê. Campos a mais na resposta são ignorados.
+ */
+public final class ContratoPagamentos {
+
+    private ContratoPagamentos() {
+    }
+
+    public enum StatusPagamento {
+        APROVADO,
+        RECUSADO
+    }
+
+    /** tokenCartao só vai no JSON quando existe: no contrato ele é opcional e não aceita null. */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public record NovoPagamento(String pedidoId, long valorCentavos, String metodo, String tokenCartao) {
+    }
+
+    public record Pagamento(String id, StatusPagamento status, String motivo) {
+    }
+}
+```
