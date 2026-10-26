@@ -55,10 +55,21 @@ public class PedidoService {
         return pedidoRepository.salvar(pedido);
     }
 
-    /** O preço vem sempre do Estoque: o cliente não informa preço no pedido. */
+    /**
+     * O preço vem sempre do Estoque: o cliente não informa preço no pedido. A soma usa aritmética exata porque o
+     * contrato não limita o preço, e um valor absurdo não pode estourar o total para negativo (o que pularia a cobrança).
+     */
     private void precificar(Pedido pedido) {
+        long totalCentavos = 0;
         for (ItemPedido item : pedido.getItens()) {
             ContratoEstoque.Produto produto = estoqueClient.consultarProduto(item.getSku());
+            try {
+                totalCentavos = Math.addExact(totalCentavos,
+                        Math.multiplyExact(produto.precoCentavos(), item.getQuantidade()));
+            } catch (ArithmeticException e) {
+                throw new FalhaIntegracaoException("estoque",
+                        "preço de " + item.getSku() + " fora do limite: o total do pedido estoura");
+            }
             item.definirPrecoUnitario(produto.precoCentavos());
         }
     }
