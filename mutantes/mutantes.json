@@ -1,0 +1,82 @@
+[
+  {
+    "id": "D1",
+    "nome": "SEM_COMPENSACAO",
+    "descricao": "Não libera a reserva quando o pedido não é cobrado (pagamento recusado ou falha de integração)",
+    "arquivo": "src/main/java/com/estudo/checkout/pedido/PedidoService.java",
+    "trecho": "estoqueClient.liberar(pedido.getReservaId());",
+    "substituto": "// D1: compensação removida"
+  },
+  {
+    "id": "D2",
+    "nome": "VALOR_EM_REAIS",
+    "descricao": "Envia ao Pagamentos o valor em reais (total / 100) em vez de centavos",
+    "arquivo": "src/main/java/com/estudo/checkout/pedido/PedidoService.java",
+    "trecho": "pedido.getId(), pedido.getTotalCentavos(), pedido.getMetodoPagamento().name(), tokenDoPagamento);",
+    "substituto": "pedido.getId(), pedido.getTotalCentavos() / 100, pedido.getMetodoPagamento().name(), tokenDoPagamento);"
+  },
+  {
+    "id": "D3",
+    "nome": "NAO_CONFIRMA_RESERVA",
+    "descricao": "Não confirma a reserva no Estoque depois do pagamento aprovado",
+    "arquivo": "src/main/java/com/estudo/checkout/pedido/PedidoService.java",
+    "trecho": "estoqueClient.confirmar(pedido.getReservaId());",
+    "substituto": "// D3: confirmação removida"
+  },
+  {
+    "id": "D4",
+    "nome": "ESTOQUE_409_VIRA_FALHA",
+    "descricao": "O 409 do Estoque deixa de ser tratado como estoque insuficiente e cai na falha genérica (503)",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/estoque/EstoqueClient.java",
+    "trecho": "} catch (HttpClientErrorException.Conflict e) {",
+    "substituto": "} catch (HttpClientErrorException.Gone e) {"
+  },
+  {
+    "id": "D5",
+    "nome": "SEM_RETENTATIVA",
+    "descricao": "Faz só uma tentativa de pagamento, sem repetir falhas transitórias",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java",
+    "trecho": "for (int tentativa = 1; tentativa <= maxTentativas; tentativa++) {",
+    "substituto": "for (int tentativa = 1; tentativa <= 1; tentativa++) {"
+  },
+  {
+    "id": "D6",
+    "nome": "NOVA_CHAVE_POR_TENTATIVA",
+    "descricao": "Gera uma Idempotency-Key diferente a cada tentativa (a repetição pode cobrar duas vezes)",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java",
+    "trecho": "return \"pedido-\" + pedidoId;",
+    "substituto": "return \"pedido-\" + pedidoId + \"-\" + java.util.UUID.randomUUID();"
+  },
+  {
+    "id": "D7",
+    "nome": "SEM_IDEMPOTENCY_KEY",
+    "descricao": "Não envia o header Idempotency-Key, que é obrigatório no contrato",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java",
+    "trecho": ".header(\"Idempotency-Key\", chaveIdempotencia(pedidoId))",
+    "substituto": ""
+  },
+  {
+    "id": "D8",
+    "nome": "REPETE_ERRO_4XX",
+    "descricao": "Repete também respostas 4xx, que não são transitórias",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java",
+    "trecho": "} catch (HttpServerErrorException | ResourceAccessException e) {",
+    "substituto": "} catch (org.springframework.web.client.HttpStatusCodeException | ResourceAccessException e) {"
+  },
+  {
+    "id": "D9",
+    "nome": "FALHA_VIRA_RECUSA",
+    "descricao": "Falha de integração é registrada como pagamento recusado (402) em vez de FALHA_INTEGRACAO (503)",
+    "arquivo": "src/main/java/com/estudo/checkout/pedido/PedidoService.java",
+    "trecho": "pedido.finalizar(StatusPedido.FALHA_INTEGRACAO, e.getMessage());",
+    "substituto": "pedido.finalizar(StatusPedido.PAGAMENTO_RECUSADO, e.getMessage());"
+  },
+  {
+    "id": "D10",
+    "nome": "ACEITA_RESPOSTA_FORA_DO_CONTRATO",
+    "descricao": "Não valida a resposta do Pagamentos: corpo sem id/status é tratado como recusa",
+    "arquivo": "src/main/java/com/estudo/checkout/integracao/pagamentos/PagamentosClient.java",
+    "trecho": "return validarContrato(pagamento);",
+    "substituto": "return pagamento;"
+  }
+]
